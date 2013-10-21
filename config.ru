@@ -1,7 +1,11 @@
 class RandomClassName
   
   def call(env)
-    [200, {'content-type' => 'text/html'}, ["Hello Rack!"]]
+    if env['REMOTE_HOST'] == "localhost"
+     [200, {'content-type' => 'text/html'}, ["Hello Rack!", " Yuuuuuuuup!"]]
+    else
+     [200, {'content-type' => 'text/html'}, ["Hello Rack!"]]
+    end
   end
 
 end
